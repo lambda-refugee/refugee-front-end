@@ -1,6 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
+import { Card, CardImg, CardText, CardBody, CardLink,
+    CardTitle, CardSubtitle } from 'reactstrap';
+
 function StoryList(props) {
     function routeToStory(e, story) {
         e.preventDefault();
@@ -17,13 +20,17 @@ function StoryList(props) {
                     className="story-card"
                     key={story.id}
                 >
-                <img
-                    className="story-list-image"
-                    src={story.imageUrl}
-                    alt={story.title}
-                />
-                <p>{story.title}</p>
-                <p>{story.text}</p>
+                
+                <Card>
+                    <CardBody>
+                        <CardTitle>{story.title}</CardTitle>
+                        <CardSubtitle>{story.country}</CardSubtitle>
+                    </CardBody>
+                   
+                    <CardBody>
+                        <CardText>{story.text}</CardText>
+                    </CardBody>
+                </Card>
                 </div>
             ))}
         </div>

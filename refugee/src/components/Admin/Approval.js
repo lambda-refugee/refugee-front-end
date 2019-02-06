@@ -1,4 +1,6 @@
 import React from 'react';
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 
 function Approval({stories, match, deleteStory, toggleApproval}) {
@@ -7,28 +9,24 @@ function Approval({stories, match, deleteStory, toggleApproval}) {
     return (
         <div className="story-wrapper">
             <div className="IndivStory">
-                <div className="story-image">
-                    <img />
-                </div>
-                <div className="story-title">
-                    <h2>{story.title}</h2>
-                </div>
-                <div>
-                    <p>{story.text}</p>
-                </div>
-            </div>
-            <button onClick={e => {
-                toggleApproval(e, story);
-            }} 
-                className="approve-button"
-            >Approve</button>
+                <Card>
+                    
+                    <CardBody>
+                    <CardTitle>{story.title}</CardTitle>
+                    <CardSubtitle>{story.country}</CardSubtitle>
+                    <CardText>{story.text}</CardText>
+                    <Button onClick={e => {
+                    toggleApproval(e, story);
+                    }} 
+                    className="approve-button">Approve</Button>
+                    <Button onClick={e => {
+                    deleteStory(e, story.id);
+                    }}
+                    className="delete-button">Delete</Button>
+                    </CardBody>
+                </Card>
 
-            <button onClick={e => {
-                deleteStory(e, story.id);
-            }}
-                className="delete-button"
-            >Delete Post
-            </button>
+            </div>
         </div>
     )
 }
