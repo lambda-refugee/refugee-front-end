@@ -55,6 +55,7 @@ class App extends Component {
     console.log("logging out");
     localStorage.clear();
     this.setState({loggedIn: false});
+    window.location = "/";
     document.location.reload(true);
   }
 
@@ -76,7 +77,12 @@ class App extends Component {
           </div>
         </nav>
 
-        <button onClick={e => {this.logout()}} >Log Out</button>
+        <div>
+          <img src="../public/images/refugees.png" />
+
+        </div>
+
+        <button onClick={e => {this.logout()}} >Logout</button>
 
         <Route exact path = "/"
           render={props => <StoryListView {...props} /> }
