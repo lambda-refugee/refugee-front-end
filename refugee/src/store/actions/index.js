@@ -55,7 +55,7 @@ export const deleteStory = id => dispatch => {
         .then(res => {
             dispatch({type: DELETE_STORY_SUCCESS, payload: res.data})
             //below code redirects admin upon successful deletion
-            window.location = "/approvals";
+            window.location = "#/approvals";
         })
         .catch(err => dispatch({type: DELETE_STORY_FAIL, payload: err}));
 };
@@ -71,7 +71,7 @@ export const toggleApproval = (story) => dispatch => {
         .then(res => {
             dispatch({type: TOGGLE_APPROVAL, payload: res.data})
             //below code redirects admin upon successful deletion
-            window.location = "/approvals";
+            window.location = "#/approvals";
         })
         .catch(err => dispatch({type: TOGGLE_FAILURE, payload: err}));
 }
