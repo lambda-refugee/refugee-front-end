@@ -14,7 +14,7 @@ function ApprovalList(props) {
             <h2>Approval Needed:</h2>
             <div>
             {props.stories.filter((story) => (      //filters through stories
-                story.approved !== 1                //for story approvals of false      
+                story.approved !== 1               //for story approvals of false      
             )).map((story) => (                     //maps through the non approved stories
                 <div
                     onClick={e => routeToStory(e, story)}

@@ -9,10 +9,12 @@ import {
     DELETE_STORY_SUCCESS,
     DELETE_STORY_FAIL,
     TOGGLE_APPROVAL,
+    TOGGLE_START,
 } from '../actions';
 
 const initialState = {
     stories: [],
+    isLoggedIn: false,
     gettingStories: false,
     submittingStory: true,
     storySubmitted: false,
@@ -80,7 +82,7 @@ function reducer(state = initialState, action) {
             ...state,
             stories: state.stories.map((story, id) =>
                 action.payload === id
-                ? {...story, approved: !story.approved}
+                ? {...story, approved: 1}
                 : story
             )
         };
