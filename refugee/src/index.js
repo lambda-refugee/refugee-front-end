@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
+import {HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import axios from 'axios';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from 'redux';

@@ -25,6 +25,17 @@ function StoryForm(props) {
                 </FormGroup>
             
                 <FormGroup>
+                    <Label for="name-country">Country of origin</Label>
+                    <Input 
+                        type="text" 
+                        name="country" 
+                        placeholder="" 
+                        onChange={props.handleChange}
+                        value={props.story.country}
+                        />
+                </FormGroup>
+            
+                <FormGroup>
                     <Label for="submission-text">Share your story</Label>
                     <Input 
                         type="textarea" 
