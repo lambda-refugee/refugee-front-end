@@ -1,0 +1,48 @@
+.App {
+    font-family: 'Muli', sans-serif;
+    /* text-align: left; */
+    height: 100%;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    
+    padding: 25px 25px;
+    margin-bottom: 25px;
+    background-color:#333a56;
+    
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end; 
+    width: 100%;
+    
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #52658f;
+    font-weight: bold;
+    margin: 0 .5em 0 .5em;
+}
+
+.nav-links a.active {
+    color: #f7f5e6;
+}
+
+.loginForm {
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 10em;
+}
+
+.StoryForm {
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 5em;
+}
+
+
