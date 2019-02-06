@@ -19,6 +19,7 @@ const initialState = {
     submittingStory: true,
     storySubmitted: false,
     deletingStory: false,
+    approved: false,
     error: null,
 }
 
@@ -81,10 +82,11 @@ function reducer(state = initialState, action) {
         return {
             ...state,
             stories: state.stories.map((story, id) =>
-                action.payload === id
+                action.payload === story
                 ? {...story, approved: 1}
                 : story
             )
+            // approved: true,
         };
         
         default:
