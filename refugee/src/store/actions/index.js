@@ -12,7 +12,9 @@ export const DELETE_STORY_START = 'DELETE_STORY_START';
 export const DELETE_STORY_SUCCESS = 'DELETE_STORY_SUCCESS';
 export const DELETE_STORY_FAIL = 'DELETE_STORY_FAIL';
 
+export const TOGGLE_START = 'TOGGLE_START';
 export const TOGGLE_APPROVAL = 'TOGGLE_APPROVAL';
+export const TOGGLE_FAILURE = 'TOGGLE_FAILURE';
 
 
 //functionality for fetching the stories data from the backend
@@ -43,6 +45,7 @@ export const submitStory = story => dispatch => {
 };
 
 
+
 //functionality for admin to delete stories on approval
 
 export const deleteStory = id => dispatch => {
@@ -51,6 +54,8 @@ export const deleteStory = id => dispatch => {
         .delete(`https://ancient-ocean-58774.herokuapp.com/stories/${id}`)
         .then(res => {
             dispatch({type: DELETE_STORY_SUCCESS, payload: res.data})
+            //below code redirects admin upon successful deletion
+            window.location = "/approvals";
         })
         .catch(err => dispatch({type: DELETE_STORY_FAIL, payload: err}));
 };
@@ -58,11 +63,18 @@ export const deleteStory = id => dispatch => {
 
 //functionality for admin to toggle approved from false to true
 
-export function toggleApproval(id) {
-    console.log('action', id);
-    return {
-        type: TOGGLE_APPROVAL,
-        payload: id
-    };
+export const toggleApproval = id => dispatch => {
+    dispatch({type: TOGGLE_START});
+    return axios
+        .put(`https://ancient-ocean-58774.herokuapp.com/stories/${id}`)
+        .then(res => {
+            dispatch({type: TOGGLE_APPROVAL, payload: id})
+            //below code redirects admin upon successful deletion
+            window.location = "/approvals";
+        })
+        .catch(err => dispatch({type: TOGGLE_FAILURE, payload: err}));
 }
+
+
+
 

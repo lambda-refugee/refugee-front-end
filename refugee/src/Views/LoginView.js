@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 import {adminLogIn} from '../store/actions';
 
@@ -11,7 +12,8 @@ class LoginView extends React.Component {
             
             username: '',
             password: ''
-        }
+        },
+        // isLoggedIn: null,
     };
 
     handleChanges = e => {
@@ -19,7 +21,14 @@ class LoginView extends React.Component {
             login: {
                 ...this.state.login,
                 [e.target.name]: e.target.value
-            }
+            },
+            // isLoggedIn: {
+            //     ...this.state.login,
+            //     if () 
+
+            //     }
+            // }
+
         });   
     }
 
@@ -57,4 +66,11 @@ class LoginView extends React.Component {
     }
 }
 
-export default LoginView;
+const mapStateToProps = state => ({
+    isLoggedIn: state.isLoggedIn
+});
+
+export default connect(
+    mapStateToProps,
+    {}
+)(LoginView);

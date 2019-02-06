@@ -9,7 +9,9 @@ function StoryList(props) {
 
     return (
         <div className="story-list">
-            {props.stories.map((story) => (
+            {props.stories.filter((story) => (
+                story.approved === 1
+            )).map((story) => (
                 <div
                     onClick={e => routeToStory(e, story)}
                     className="story-card"
