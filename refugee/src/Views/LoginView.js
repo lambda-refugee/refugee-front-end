@@ -22,12 +22,6 @@ class LoginView extends React.Component {
                 ...this.state.login,
                 [e.target.name]: e.target.value
             },
-            // isLoggedIn: {
-            //     ...this.state.login,
-            //     if () 
-
-            //     }
-            // }
 
         });   
     }
@@ -44,13 +38,16 @@ class LoginView extends React.Component {
             .then(res => {
                 console.log('response', res.data.token)
                 localStorage.setItem('jwt', res.data.token);
+                localStorage.setItem('isLoggedIn', true);
                 //below code redirects user upon successful login
-                window.location = "/approvals";
+                window.location = "#/approvals";
+                document.location.reload(true);
             
             })
-            .catch(err => console.log(err))
-            window.location = "/";
-        
+            .catch(err => {
+                console.log(err);
+                window.location = "/";
+            })
     }
     
 //props passed to LoginForm
