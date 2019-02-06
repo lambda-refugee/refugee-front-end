@@ -12,8 +12,28 @@ class AddNewStory extends React.Component {
             title: '',
             text: '',
             approved: 0,
+            country: ''
         }
     };
+
+    componentDidMount() {
+        console.log(this.props.location.search)
+        const params = new URLSearchParams(this.props.location.search)
+        // If the query params include a `name` field, use that to initialize state
+        params.has('name') && this.setState(({ story }) => ({
+            story: {
+                ...story,
+                title: params.get('name')
+            }
+        }))
+        // Same for country of origin
+        params.has('country') && this.setState(({ story }) => ({
+            story: {
+                ...story,
+                country: params.get('country')
+            }
+        }))
+    }
 
     handleChange = e => {
         this.setState({

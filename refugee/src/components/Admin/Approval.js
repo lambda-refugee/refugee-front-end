@@ -18,7 +18,7 @@ function Approval({stories, match, deleteStory, toggleApproval}) {
                 </div>
             </div>
             <button onClick={e => {
-                toggleApproval(e, story.id);
+                toggleApproval(e, story);
             }} 
                 className="approve-button"
             >Approve</button>

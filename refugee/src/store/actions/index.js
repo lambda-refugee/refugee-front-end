@@ -63,12 +63,13 @@ export const deleteStory = id => dispatch => {
 
 //functionality for admin to toggle approved from false to true
 
-export const toggleApproval = id => dispatch => {
+export const toggleApproval = (story) => dispatch => {
     dispatch({type: TOGGLE_START});
+    story.approved = 1;
     return axios
-        .put(`https://ancient-ocean-58774.herokuapp.com/stories/${id}`)
+        .put(`https://ancient-ocean-58774.herokuapp.com/stories/${story.id}`, story)
         .then(res => {
-            dispatch({type: TOGGLE_APPROVAL, payload: id})
+            dispatch({type: TOGGLE_APPROVAL, payload: res.data})
             //below code redirects admin upon successful deletion
             window.location = "/approvals";
         })
