@@ -6,6 +6,7 @@ function SignUp(props) {
     
     return (
         <div className="loginForm">
+            <h4>Please provide a username and password to register.</h4>
             <form onSubmit={props.submitLogin}>
                 <InputGroup>
                     <InputGroupAddon addonType="prepend">Username</InputGroupAddon>

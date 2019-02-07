@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 
 import {Route, NavLink} from 'react-router-dom';
 
-import NotificationSystem from 'react-notification-system';
-
 import LoginView from './Views/LoginView';
 import StoryFormView from './Views/StoryFormView';
 import IndivStoryView from './Views/IndivStoryView';
@@ -20,13 +18,12 @@ import './App.css';
 
 
 
-export default class App extends Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {
       jwt: '',
       isLoggedIn: '',
-      notify: false,
     };
   }
 
@@ -60,23 +57,23 @@ export default class App extends Component {
 
   logout_notify = () => toast.info('Logout successful.', {
       position: "top-center",
-      autoClose: 5000,
+      autoClose: 3000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
     });
 
-  logout = () => {
-    console.log("logging out");
-    this.logout_notify();
-    localStorage.clear();
-    this.setState({loggedIn: false});
-    window.location = "/";
-    document.location.reload(true);
+    logout = () => {
+      console.log("logging out");
+      this.logout_notify();
+      localStorage.clear();
+      this.setState({
+      jwt: '',
+      isLoggedIn: '',
+      });
+    }
     
-    
-  }
 
   render() {
     
@@ -84,7 +81,11 @@ export default class App extends Component {
       <div className="App">
       <ToastContainer />
         <nav>
+          <h1 className="page-title">Refugee Stories</h1>
+
           <div className="nav-links">
+            <a href="https://stoic-ardinghelli-5b5372.netlify.com/">Home</a>
+
             <NavLink exact to="/">Stories</NavLink>
 
             <NavLink exact to="/register">{this.state.isLoggedIn ? null : "Sign Up"}</NavLink> 
@@ -102,10 +103,7 @@ export default class App extends Component {
         <div>
           <img src="images/refugee1.png" />
 
-        </div>
-
-        <button onClick={e => {this.logout_notify()}} >Logout</button>
-        
+        </div>    
         
 
         <Route exact path = "/"
@@ -141,4 +139,4 @@ export default class App extends Component {
   }
 }
 
-
+export default App;
