@@ -78,7 +78,7 @@ class App extends Component {
         </nav>
 
         <div>
-          <img src="../public/images/refugees.png" />
+          <img src="images/refugees1.png" />
 
         </div>
 
