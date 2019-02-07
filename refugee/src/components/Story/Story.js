@@ -8,10 +8,10 @@ function Story({stories, history, match}) {
     return (
 
         <div>
-            <Card>
+            <Card className="indv-story-card">
                 <CardBody>
-                    <CardTitle>{story.title}</CardTitle>
-                    <CardSubtitle>{story.country}</CardSubtitle>
+                    <CardTitle className="submitter-name">{story.title}</CardTitle>
+                    <CardSubtitle className="submitter-country">{story.country}</CardSubtitle>
                 </CardBody>
                 <img width="100%" src="https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180" alt="Card image cap" />
                 <CardBody>

@@ -3,6 +3,7 @@
     /* text-align: left; */
     height: 100%;
     width: 100%;
+    background-color: #E8E8E8;
 }
 
 nav {
@@ -10,7 +11,7 @@ nav {
     justify-content: space-between;
     
     padding: 25px 25px;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
     background-color:#333a56;
     
 }
@@ -33,6 +34,11 @@ nav {
     color: #f7f5e6;
 }
 
+.page-title {
+    color:  #E8E8E8;
+    font-weight: 800;
+}
+
 .loginForm {
     width: 40%;
     margin: 0 auto;
@@ -45,4 +51,19 @@ nav {
     padding-top: 5em;
 }
 
+.story-card-list {
+    margin: 2% 1%;
+}
+
+.indv-story-card {
+    margin: 3%;
+}
+
+.submitter-name {
+    font-weight: 800;
+}
+
+.submitter-country {
+    font-weight: 700;
+}
 

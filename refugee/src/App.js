@@ -100,10 +100,7 @@ class App extends Component {
           </div>
         </nav>
 
-        <div>
-          <img src="images/refugee1.png" />
-
-        </div>    
+         
         
 
         <Route exact path = "/"
