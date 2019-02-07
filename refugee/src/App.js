@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 
 import {Route, NavLink} from 'react-router-dom';
 
+import NotificationSystem from 'react-notification-system';
+
 import LoginView from './Views/LoginView';
 import StoryFormView from './Views/StoryFormView';
 import IndivStoryView from './Views/IndivStoryView';
@@ -11,19 +13,24 @@ import StoryListView from './Views/StoryListView';
 import ApprovalView from './Views/ApprovalView';
 import IndivApprovalView from './Views/IndivApprovalView';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './App.css';
 
-class App extends Component {
+
+
+export default class App extends Component {
   constructor() {
     super();
     this.state = {
       jwt: '',
       isLoggedIn: '',
+      notify: false,
     };
-
-   
-
   }
+
+
 
   componentDidMount() {
     console.log("comp mounting");
@@ -51,21 +58,34 @@ class App extends Component {
     }
   }
 
+  logout_notify = () => toast.info('Logout successful.', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+
   logout = () => {
     console.log("logging out");
+    this.logout_notify();
     localStorage.clear();
     this.setState({loggedIn: false});
     window.location = "/";
     document.location.reload(true);
+    
+    
   }
 
   render() {
     
     return (
       <div className="App">
+      <ToastContainer />
         <nav>
           <div className="nav-links">
-            <NavLink exact to="/">Home</NavLink>
+            <NavLink exact to="/">Stories</NavLink>
 
             <NavLink exact to="/register">{this.state.isLoggedIn ? null : "Sign Up"}</NavLink> 
             
@@ -74,6 +94,8 @@ class App extends Component {
             <NavLink exact to="/login">{this.state.isLoggedIn ? null : "Login"}</NavLink>
       
             <NavLink exact to="/approvals">{this.state.isLoggedIn ? "Pending Approval" : null}</NavLink>
+
+            <NavLink exact to="/" onClick={e => {this.logout()}}>{this.state.isLoggedIn ? "Logout" : null}</NavLink>
           </div>
         </nav>
 
@@ -82,7 +104,9 @@ class App extends Component {
 
         </div>
 
-        <button onClick={e => {this.logout()}} >Logout</button>
+        <button onClick={e => {this.logout_notify()}} >Logout</button>
+        
+        
 
         <Route exact path = "/"
           render={props => <StoryListView {...props} /> }
@@ -117,13 +141,4 @@ class App extends Component {
   }
 }
 
-// const mapStateToProps = state => ({
-//   isLoggedIn: state.isLoggedIn
-// });
 
-// export default connect(
-//   mapStateToProps,
-//   {}
-// )(App);
-
-export default App;
