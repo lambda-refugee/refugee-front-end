@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 function StoryForm(props) {
@@ -7,7 +8,7 @@ function StoryForm(props) {
     const handleClick = e => {
         e.preventDefault();
         props.addStory();
-        window.location = "/";
+        window.location = "#/"
     }
 
     return (

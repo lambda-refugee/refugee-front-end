@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { toast } from 'react-toastify';
+
 export const GET_STORIES = 'GET_STORIES';
 export const GET_STORIES_SUCCESS = 'GET_STORIES_SUCCESS';
 export const GET_STORIES_FAILURE = 'GET_STORIES_SUCCESS';
@@ -15,6 +17,10 @@ export const DELETE_STORY_FAIL = 'DELETE_STORY_FAIL';
 export const TOGGLE_START = 'TOGGLE_START';
 export const TOGGLE_APPROVAL = 'TOGGLE_APPROVAL';
 export const TOGGLE_FAILURE = 'TOGGLE_FAILURE';
+
+
+//notification functions
+
 
 
 //functionality for fetching the stories data from the backend
@@ -33,6 +39,17 @@ export const getStories = () => dispatch => {
 
 //functionality for user to submit story into approval queue
 
+export const submitToast = message => {
+    toast.info(message, {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+    });
+}
+
 export const submitStory = story => dispatch => {
     dispatch({type: SUBMITTING_STORY_START});
     
@@ -40,8 +57,10 @@ export const submitStory = story => dispatch => {
         .post('https://ancient-ocean-58774.herokuapp.com/stories', story)
         .then(res => {
             dispatch({type: SUBMITTING_STORY_SUCCESS, payload: res.data})
+            submitToast("Story submitted for approval.");
         }) 
         .catch(err => dispatch({type: SUBMITTING_FAIL, payload: err}));        
+        
 };
 
 
@@ -55,7 +74,9 @@ export const deleteStory = id => dispatch => {
         .then(res => {
             dispatch({type: DELETE_STORY_SUCCESS, payload: res.data})
             //below code redirects admin upon successful deletion
-            window.location = "#/approvals";
+            
+            submitToast("Story deleted.");
+            
         })
         .catch(err => dispatch({type: DELETE_STORY_FAIL, payload: err}));
 };
@@ -70,7 +91,8 @@ export const toggleApproval = (story) => dispatch => {
         .put(`https://ancient-ocean-58774.herokuapp.com/stories/${story.id}`, story)
         .then(res => {
             dispatch({type: TOGGLE_APPROVAL, payload: res.data})
-            //below code redirects admin upon successful deletion
+            submitToast("Story approved!");
+            //below code redirects admin upon successful approval
             window.location = "#/approvals";
         })
         .catch(err => dispatch({type: TOGGLE_FAILURE, payload: err}));

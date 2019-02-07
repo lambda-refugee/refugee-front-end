@@ -11,17 +11,19 @@ function StoryList(props) {
     }
 
     return (
-        <div className="story-list">
+        <div className="story-list">           
+
             {props.stories.filter((story) => (
                 story.approved === 1
             )).map((story) => (
+            <div>
                 <div
                     onClick={e => routeToStory(e, story)}
                     className="story-card"
                     key={story.id}
                 >
                 
-                <Card>
+                <Card className="story-card-list">
                     <CardBody>
                         <CardTitle>{story.title}</CardTitle>
                         <CardSubtitle>{story.country}</CardSubtitle>
@@ -30,9 +32,18 @@ function StoryList(props) {
                     <CardBody>
                         <CardText>{story.text}</CardText>
                     </CardBody>
+
                 </Card>
+
                 </div>
+
+                <div className={props.isLoggedIn ? "visible-button" : "hidden-button"}><button onClick={e => {
+                    props.deleteStory(e, story.id);
+                }}>Delete Story</button> </div> 
+            </div>
             ))}
+        
+        
         </div>
     );
 }
