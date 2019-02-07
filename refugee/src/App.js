@@ -81,22 +81,23 @@ class App extends Component {
       <div className="App">
       <ToastContainer />
         <nav>
-          <h1 className="page-title">Refugee Stories</h1>
+          <h1 className="page-title1">Refugee</h1>
+          <h1 className="page-title2">Stories</h1>
 
           <div className="nav-links">
-            <a href="https://stoic-ardinghelli-5b5372.netlify.com/">Home</a>
+            <a className="to-peters-link" href="https://stoic-ardinghelli-5b5372.netlify.com/">HOME</a> 
 
-            <NavLink exact to="/">Stories</NavLink>
+            <NavLink className="stories-link" exact to="/">STORIES</NavLink> 
 
-            <NavLink exact to="/register">{this.state.isLoggedIn ? null : "Sign Up"}</NavLink> 
+            <NavLink exact to="/register">{this.state.isLoggedIn ? null : "SIGN UP"}</NavLink> 
             
-            <NavLink exact to="/story-form">Share Your Story</NavLink>
+            <NavLink exact to="/story-form">SHARE YOUR STORY</NavLink> 
 
-            <NavLink exact to="/login">{this.state.isLoggedIn ? null : "Login"}</NavLink>
+            <NavLink exact to="/login">{this.state.isLoggedIn ? null : "LOGIN"}</NavLink> 
+
+            <NavLink exact to="/approvals">{this.state.isLoggedIn ? "PENDING APPROVAL" : null}</NavLink> 
       
-            <NavLink exact to="/approvals">{this.state.isLoggedIn ? "Pending Approval" : null}</NavLink>
-
-            <NavLink exact to="/" onClick={e => {this.logout()}}>{this.state.isLoggedIn ? "Logout" : null}</NavLink>
+            <NavLink exact to="/" onClick={e => {this.logout()}}>{this.state.isLoggedIn ? "LOGOUT" : null}</NavLink>
           </div>
         </nav>
 
@@ -130,6 +131,7 @@ class App extends Component {
         <Route exact path='/approvals/:id'
           render={props => <IndivApprovalView {...props} /> }
         />
+
 
       </div>
     );

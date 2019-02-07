@@ -56,6 +56,10 @@ class AddNewStory extends React.Component {
                     story={this.state.story}
                     addStory={this.addStory}
                 />
+            
+            <div className="view-bottom-image">
+                <img src="../images/refugee5.png" alt="Syrian Refugees coming ashore in a boat"/>
+            </div>
 
             </div>
         )

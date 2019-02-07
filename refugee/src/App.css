@@ -6,57 +6,114 @@
     background-color: #E8E8E8;
 }
 
+
+
+/* nav bar styling */
+
 nav {
     display: flex;
     justify-content: space-between;
-    
-    padding: 25px 25px;
-    /* margin-bottom: 25px; */
-    background-color:#333a56;
-    
+    padding: 2% 2.5%;
+    background-color: #333a56;   
 }
 
 .nav-links {
     display: flex;
     justify-content: flex-end; 
     width: 100%;
-    
+    font-size: 1.25rem;
+    margin-top: 1.5%;
+    font-weight: 900;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #52658f;
-    font-weight: bold;
     margin: 0 .5em 0 .5em;
+    font-weight: 900;
 }
 
 .nav-links a.active {
     color: #f7f5e6;
 }
 
-.page-title {
+.stories-link {
+    padding-left: .25em;
+}
+
+.page-title1 {
     color:  #E8E8E8;
     font-weight: 800;
 }
 
-.loginForm {
-    width: 40%;
-    margin: 0 auto;
-    padding-top: 10em;
+.page-title2 {
+    color:  #E8E8E8;
+    font-weight: 800;
+    margin-left: -3%;
+    margin-top: 2%;
 }
 
-.StoryForm {
-    width: 75%;
-    margin: 0 auto;
-    padding-top: 5em;
+
+
+/* main story --list view-- styling */
+
+.story-list-view-image img {
+    object-fit: cover;
+    width: 100%;
 }
 
 .story-card-list {
     margin: 2% 1%;
 }
 
+.view-bottom-image img {
+    width: 100%;
+}
+
+.story-list-page h1 {
+    font-weight: 900;
+    color: #E8E8E8;
+    margin-top: -6%;
+    margin-left: .5em;
+}
+
+.story-list-page h5 {
+    font-weight: 800;
+    color: #E8E8E8;
+    margin-left: 1.5%;
+}
+
+/* individual story card styling */
+
 .indv-story-card {
     margin: 3%;
+}
+
+
+
+/* sign up --or registration-- page styling */
+
+.loginForm h4 {
+    padding-bottom: 1%;
+    padding-top: 2%;
+    text-align: center;
+    color:  #333a56; 
+}
+
+.register-view-image {
+    position: fixed;
+    bottom: 0;
+}
+
+
+
+/* story form styling */
+
+.StoryForm {
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
 
 .submitter-name {
@@ -66,4 +123,41 @@ nav {
 .submitter-country {
     font-weight: 700;
 }
+
+.story-form-view-image {
+    position: fixed;
+    bottom: -1;
+}
+
+
+
+
+/* approval page styling */
+
+.ApprovalPage h2 {
+    padding: 2% 2.5%;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color:  #333a56; 
+}
+
+
+
+
+/* login form styling */
+
+.loginForm {
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.login-view-image {
+    position: fixed;
+    bottom: 0;
+}
+
+
+
 

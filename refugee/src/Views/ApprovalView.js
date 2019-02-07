@@ -19,12 +19,16 @@ class ApprovalView extends React.Component {
 
     render() {
         return (
+            <div className="ApprovalPage">
+            <h2>Pending Approval List</h2>
+
             <ApprovalList //pass these props into the ApprovalList component
                 history={this.props.history}
                 getItemById={this.props.getItemById}
                 stories={this.props.stories}
-                
+                getStories={this.props.getStories}
             />
+            </div>
         )
     }
 }

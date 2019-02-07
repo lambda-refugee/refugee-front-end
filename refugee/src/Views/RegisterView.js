@@ -54,11 +54,19 @@ class RegisterView extends React.Component {
 
     render() {
         return (
+            <div className="registration-page">
+
             <RegisterForm 
                 handleChanges={this.handleChanges}
                 submitLogin={this.handleSubmit}
                 login={this.state.login}
             />
+
+            <div className="view-bottom-image">
+                <img src="../images/refugee7.png" alt="Syrian Refugees coming ashore in a boat"/>
+            </div>
+
+            </div>  
         );
     }
 }
