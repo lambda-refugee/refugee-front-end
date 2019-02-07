@@ -21,6 +21,8 @@ function Approval({stories, match, deleteStory, toggleApproval}) {
                     className="approve-button">Approve</Button>
                     <Button onClick={e => {
                     deleteStory(e, story.id);
+                    window.location = '#/approvals';
+                    
                     }}
                     className="delete-button">Delete</Button>
                     </CardBody>

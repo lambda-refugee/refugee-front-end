@@ -69,11 +69,20 @@ class LoginView extends React.Component {
 
     render() {
         return (
+
+            <div>
+
             <LoginForm 
                 handleChanges={this.handleChanges}
                 submitLogin={this.handleSubmit}
                 login={this.state.login}
             />
+
+            <div className="view-bottom-image">
+            <img src="../images/refugee2.png" alt="Syrian Refugees coming ashore in a boat"/>
+            </div> 
+
+            </div>
         );
     }
 }

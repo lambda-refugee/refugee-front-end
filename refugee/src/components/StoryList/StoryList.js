@@ -37,9 +37,6 @@ function StoryList(props) {
 
                 </div>
 
-                <div className={props.isLoggedIn ? "visible-button" : "hidden-button"}><button onClick={e => {
-                    props.deleteStory(e, story.id);
-                }}>Delete Story</button> </div> 
             </div>
             ))}
         
