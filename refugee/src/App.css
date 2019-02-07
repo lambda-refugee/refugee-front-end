@@ -50,7 +50,7 @@ nav {
     color:  #E8E8E8;
     font-weight: 800;
     margin-left: -3%;
-    margin-top: 2%;
+    margin-top: 2rem;
 }
 
 
@@ -73,8 +73,8 @@ nav {
 .story-list-page h1 {
     font-weight: 900;
     color: #E8E8E8;
-    margin-top: -6%;
-    margin-left: .5em;
+    margin-top: -5.5rem;
+    margin-left: .5rem;
 }
 
 .story-list-page h5 {
