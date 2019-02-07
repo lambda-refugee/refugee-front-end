@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button } from 'reactstrap';
+
 function ApprovalList(props) {
     function routeToStory(e, story) {
         e.preventDefault();
@@ -21,13 +24,13 @@ function ApprovalList(props) {
                     className="storyCard"
                     key={story.id}
                 >
-                <img
-                    className="story-list-image"
-                    src={story.imageUrl}
-                    alt={story.title}
-                />
-                <p>{story.title}</p>
-                <p>{story.text}</p>
+                    <Card>
+                    <CardBody>
+                        <CardTitle>{story.title}</CardTitle>
+                        <CardSubtitle>{story.country}</CardSubtitle>
+                        <CardText>{story.text}</CardText>
+                    </CardBody>
+                    </Card>
                 </div>
             ))}
             </div>

@@ -11,7 +11,12 @@ import StoryListView from './Views/StoryListView';
 import ApprovalView from './Views/ApprovalView';
 import IndivApprovalView from './Views/IndivApprovalView';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './App.css';
+
+
 
 class App extends Component {
   constructor() {
@@ -20,10 +25,9 @@ class App extends Component {
       jwt: '',
       isLoggedIn: '',
     };
-
-   
-
   }
+
+
 
   componentDidMount() {
     console.log("comp mounting");
@@ -51,21 +55,38 @@ class App extends Component {
     }
   }
 
-  logout = () => {
-    console.log("logging out");
-    localStorage.clear();
-    this.setState({loggedIn: false});
-    window.location = "/";
-    document.location.reload(true);
-  }
+  logout_notify = () => toast.info('Logout successful.', {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+
+    logout = () => {
+      console.log("logging out");
+      this.logout_notify();
+      localStorage.clear();
+      this.setState({
+      jwt: '',
+      isLoggedIn: '',
+      });
+    }
+    
 
   render() {
     
     return (
       <div className="App">
+      <ToastContainer />
         <nav>
+          <h1 className="page-title">Refugee Stories</h1>
+
           <div className="nav-links">
-            <NavLink exact to="/">Home</NavLink>
+            <a href="https://stoic-ardinghelli-5b5372.netlify.com/">Home</a>
+
+            <NavLink exact to="/">Stories</NavLink>
 
             <NavLink exact to="/register">{this.state.isLoggedIn ? null : "Sign Up"}</NavLink> 
             
@@ -74,15 +95,16 @@ class App extends Component {
             <NavLink exact to="/login">{this.state.isLoggedIn ? null : "Login"}</NavLink>
       
             <NavLink exact to="/approvals">{this.state.isLoggedIn ? "Pending Approval" : null}</NavLink>
+
+            <NavLink exact to="/" onClick={e => {this.logout()}}>{this.state.isLoggedIn ? "Logout" : null}</NavLink>
           </div>
         </nav>
 
         <div>
-          <img src="../public/images/refugees.png" />
+          <img src="images/refugee1.png" />
 
-        </div>
-
-        <button onClick={e => {this.logout()}} >Logout</button>
+        </div>    
+        
 
         <Route exact path = "/"
           render={props => <StoryListView {...props} /> }
@@ -116,14 +138,5 @@ class App extends Component {
     );
   }
 }
-
-// const mapStateToProps = state => ({
-//   isLoggedIn: state.isLoggedIn
-// });
-
-// export default connect(
-//   mapStateToProps,
-//   {}
-// )(App);
 
 export default App;

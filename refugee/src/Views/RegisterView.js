@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-
+import { ToastContainer, toast } from 'react-toastify';
 
 import RegisterForm from '../components/Login/RegisterForm';
 
@@ -24,6 +24,15 @@ class RegisterView extends React.Component {
         
     }
 
+    signup_notify = () => toast.info('Sign-up successful.', {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+
     
 
     handleSubmit = event => {
@@ -35,6 +44,8 @@ class RegisterView extends React.Component {
             .then(res => {
                 console.log('response', res.data.token)
                 localStorage.setItem('jwt', res.data.token);
+                this.signup_notify();
+                window.location = '#/';
             })
             .catch(err => console.log(err))
     }

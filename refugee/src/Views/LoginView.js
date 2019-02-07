@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 
 import {adminLogIn} from '../store/actions';
 
+import { ToastContainer, toast, Zoom, Flip } from 'react-toastify';
+
 import LoginForm from '../components/Login/LoginForm';
 
 class LoginView extends React.Component {
@@ -13,7 +15,7 @@ class LoginView extends React.Component {
             username: '',
             password: ''
         },
-        // isLoggedIn: null,
+        isLoggedIn: '',
     };
 
     handleChanges = e => {
@@ -25,6 +27,16 @@ class LoginView extends React.Component {
 
         });   
     }
+
+    login_error = () => toast.error('Login failed. Please check username and password.', {
+        position: "bottom-center",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        autoClose: false,
+        transition: Flip,
+      });
 
     
 
@@ -39,14 +51,17 @@ class LoginView extends React.Component {
                 console.log('response', res.data.token)
                 localStorage.setItem('jwt', res.data.token);
                 localStorage.setItem('isLoggedIn', true);
+                this.state.isLoggedIn = true;
                 //below code redirects user upon successful login
                 window.location = "#/approvals";
                 document.location.reload(true);
+                
+                
             
             })
             .catch(err => {
                 console.log(err);
-                window.location = "/";
+                this.login_error();
             })
     }
     
