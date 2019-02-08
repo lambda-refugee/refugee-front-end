@@ -60,7 +60,7 @@ function StoryForm(props) {
 export default StoryForm;
 
 Input.propTypes = {
-    children: PropTypes.node,
+    
     type: PropTypes.string,
     value: PropTypes.string,
   };

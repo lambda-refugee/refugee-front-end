@@ -44,7 +44,7 @@ function Login(props) {
 export default Login;
 
 Input.propTypes = {
-    children: PropTypes.node,
+    
     type: PropTypes.string,
     value: PropTypes.string,
   };
