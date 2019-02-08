@@ -68,4 +68,4 @@ CardSubtitle.propTypes = {
   CardBody.propTypes = {
     tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
     className: PropTypes.string
-  };
+  };   

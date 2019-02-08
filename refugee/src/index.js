@@ -1,3 +1,7 @@
+// user admin login for testing purposes   
+//   username DSS 
+//   password 123456
+
 
 import React from 'react';
 import ReactDOM from 'react-dom';
