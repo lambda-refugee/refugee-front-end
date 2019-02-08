@@ -1,5 +1,6 @@
 import React from 'react';
 import { InputGroup, InputGroupAddon, InputGroupText, Input, Button } from 'reactstrap';
+import PropTypes from "prop-types";
 
 function Login(props) {
 
@@ -41,3 +42,9 @@ function Login(props) {
 }
 
 export default Login;
+
+Input.propTypes = {
+    children: PropTypes.node,
+    type: PropTypes.string,
+    value: PropTypes.string,
+  };

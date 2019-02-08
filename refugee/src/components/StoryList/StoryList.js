@@ -1,10 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import PropTypes from "prop-types";
 
-import { Card, CardImg, CardText, CardBody, CardLink,
+import { Card, CardText, CardBody, 
     CardTitle, CardSubtitle } from 'reactstrap';
 
 function StoryList(props) {
+    //event handler that routes to individual story card
     function routeToStory(e, story) {
         e.preventDefault();
         props.history.push(`/story-list/${story.id}`);
@@ -46,3 +47,35 @@ function StoryList(props) {
 }
 
 export default StoryList;
+
+
+Card.propTypes = {
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    inverse: PropTypes.bool,
+    color: PropTypes.string,
+    body: PropTypes.bool,
+    className: PropTypes.string
+  };
+  
+  CardBody.propTypes = {
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+  };
+
+  CardSubtitle.propTypes = {
+    // Pass in a Component to override default element
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+  };
+  
+  CardText.propTypes = {
+    // Pass in a Component to override default element
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+  };
+  
+  CardTitle.propTypes = {
+    // Pass in a Component to override default element
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+  };

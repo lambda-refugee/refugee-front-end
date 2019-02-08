@@ -1,6 +1,7 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody, CardLink,
+import { Card,  CardText, CardBody, 
     CardTitle, CardSubtitle } from 'reactstrap';
+import PropTypes from "prop-types";
 
 function Story({stories, history, match}) {
     const story = stories.find(submission => `${submission.id}` === match.params.id);
@@ -26,3 +27,31 @@ function Story({stories, history, match}) {
 
 
 export default Story;
+
+Card.propTypes = {
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    inverse: PropTypes.bool,
+    color: PropTypes.string,
+    body: PropTypes.bool,
+    className: PropTypes.string
+  };
+  
+  CardBody.propTypes = {
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+  };
+
+  CardSubtitle.propTypes = {
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+  };
+  
+  CardText.propTypes = {
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+  };
+  
+  CardTitle.propTypes = {
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+  };

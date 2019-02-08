@@ -10,13 +10,14 @@ class ApprovalView extends React.Component {
         stories: []
     };
 
+    //upon mounting gets the stories from the backend stories database
     componentDidMount() {
         this.props.getStories();
     }
 
     
 
-
+    //renders the ApprovalList component and passes it the included props below
     render() {
         return (
             <div className="ApprovalPage">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { InputGroup, InputGroupAddon, InputGroupText, Input, Button } from 'reactstrap';
+import PropTypes from "prop-types";
 
 function SignUp(props) {
 
@@ -42,3 +43,9 @@ function SignUp(props) {
 }
 
 export default SignUp;
+
+Input.propTypes = {
+    children: PropTypes.node,
+    type: PropTypes.string,
+    value: PropTypes.string,
+  };

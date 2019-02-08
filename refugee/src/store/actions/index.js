@@ -19,9 +19,6 @@ export const TOGGLE_APPROVAL = 'TOGGLE_APPROVAL';
 export const TOGGLE_FAILURE = 'TOGGLE_FAILURE';
 
 
-//notification functions
-
-
 
 //functionality for fetching the stories data from the backend
 //used on the individual story view, the main listed story view and the approval list

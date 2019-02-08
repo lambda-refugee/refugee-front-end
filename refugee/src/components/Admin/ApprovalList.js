@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardText, CardBody,
+    CardTitle, CardSubtitle} from 'reactstrap';
 
 function ApprovalList(props) {
+    //event handler that on clicking will route the user to the individual story's page
     function routeToStory(e, story) {
         e.preventDefault();
         props.history.push(`/approvals/${story.id}`);
@@ -24,6 +25,7 @@ function ApprovalList(props) {
                     className="storyCard"
                     key={story.id}
                 >
+                {/* the story card is populated with the data using props */}
                     <Card>
                     <CardBody>
                         <CardTitle>{story.title}</CardTitle>

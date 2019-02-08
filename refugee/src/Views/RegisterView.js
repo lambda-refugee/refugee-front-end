@@ -14,6 +14,7 @@ class RegisterView extends React.Component {
         }
     };
 
+    //event handler that updates the form fields when it is changed by the user
     handleChanges = e => {
         this.setState({
             login: {
@@ -24,6 +25,7 @@ class RegisterView extends React.Component {
         
     }
 
+    //notification popup that alerts the user of a successful sign up
     signup_notify = () => toast.info('Sign-up successful.', {
         position: "top-center",
         autoClose: 3000,
@@ -34,16 +36,16 @@ class RegisterView extends React.Component {
       });
 
     
-
+    //axios call that posts the user login info (username & password) to the backend users database
     handleSubmit = event => {
         event.preventDefault();
-        // const endpoint = `https://ancient-ocean-58774.herokuapp.com/register`;
     
         axios
             .post(`https://ancient-ocean-58774.herokuapp.com/register`, this.state.login)
             .then(res => {
                 console.log('response', res.data.token)
                 localStorage.setItem('jwt', res.data.token);
+                //notification popup function invocation
                 this.signup_notify();
                 window.location = '#/';
             })
@@ -51,7 +53,7 @@ class RegisterView extends React.Component {
     }
     
 
-
+    //this renders the register form component and passes it the included props
     render() {
         return (
             <div className="registration-page">

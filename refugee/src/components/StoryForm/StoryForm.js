@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 function StoryForm(props) {
 
+    //event handler that pushes the user to the stories page upon story submission
     const handleClick = e => {
         e.preventDefault();
         props.addStory();
@@ -56,3 +58,9 @@ function StoryForm(props) {
 }
 
 export default StoryForm;
+
+Input.propTypes = {
+    children: PropTypes.node,
+    type: PropTypes.string,
+    value: PropTypes.string,
+  };

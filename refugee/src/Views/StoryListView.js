@@ -11,16 +11,14 @@ class StoryListView extends React.Component {
         isLoggedIn: '',
     };
 
+    // gets stories from the backend story database upon mounting
+
     componentDidMount() {
         this.props.getStories();
     }
 
-    deleteStory = (e, id) => {
-        
-        this.props.deleteStory(id);
-        this.props.getStories();
-        // this.forceUpdate();
-    };
+
+    //renders the storylist component and passes it the necessary props
 
     render() {
         return (
