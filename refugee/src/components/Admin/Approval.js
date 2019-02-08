@@ -28,7 +28,7 @@ function Approval({stories, match, deleteStory, toggleApproval}) {
                     {/* button wih ability to delete story */}
                     <Button onClick={e => {
                     deleteStory(e, story.id);
-                    window.location = '#/approvals';
+        
                     }}
                     className="delete-button">Delete</Button>
 
