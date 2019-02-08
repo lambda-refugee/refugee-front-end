@@ -73,7 +73,7 @@ export const deleteStory = id => dispatch => {
             //below code redirects admin upon successful deletion
             
             submitToast("Story deleted.");
-            
+            window.location = "#/approvals";
         })
         .catch(err => dispatch({type: DELETE_STORY_FAIL, payload: err}));
 };

@@ -26,7 +26,7 @@ function ApprovalList(props) {
                     key={story.id}
                 >
                 {/* the story card is populated with the data using props */}
-                    <Card>
+                    <Card className="approval-list">
                     <CardBody>
                         <CardTitle>{story.title}</CardTitle>
                         <CardSubtitle>{story.country}</CardSubtitle>

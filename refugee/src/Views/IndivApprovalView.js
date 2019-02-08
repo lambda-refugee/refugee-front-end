@@ -13,8 +13,9 @@ class IndivApprovalView extends React.Component {
     }
 
     deleteStory = (e, id) => {
-        e.preventDefault();
+        
         this.props.deleteStory(id);
+        getStories();
         
     };
 
