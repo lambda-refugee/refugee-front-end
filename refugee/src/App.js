@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+
 
 import {Route, NavLink} from 'react-router-dom';
 
@@ -27,7 +27,7 @@ class App extends Component {
     };
   }
 
-
+  //below code deals with saving user admin token to local storage
 
   componentDidMount() {
     console.log("comp mounting");
@@ -55,6 +55,8 @@ class App extends Component {
     }
   }
 
+  //logout notification popup
+
   logout_notify = () => toast.info('Logout successful.', {
       position: "top-center",
       autoClose: 3000,
@@ -63,6 +65,8 @@ class App extends Component {
       pauseOnHover: true,
       draggable: true,
     });
+
+    //logout function
 
     logout = () => {
       console.log("logging out");
@@ -76,6 +80,8 @@ class App extends Component {
     
 
   render() {
+
+    //App renders all routes and navlinks as well as passes props to all view pages
     
     return (
       <div className="App">

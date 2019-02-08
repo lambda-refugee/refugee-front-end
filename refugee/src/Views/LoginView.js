@@ -18,6 +18,7 @@ class LoginView extends React.Component {
         isLoggedIn: '',
     };
 
+    //event handler that updates the form fields to whatever is being typed by the user
     handleChanges = e => {
         this.setState({ 
             login: {
@@ -28,6 +29,8 @@ class LoginView extends React.Component {
         });   
     }
 
+
+    //notification error pop up if the user types in an incorrect user name or password
     login_error = () => toast.error('Login failed. Please check username and password.', {
         position: "bottom-center",
         hideProgressBar: false,
@@ -39,7 +42,7 @@ class LoginView extends React.Component {
       });
 
     
-
+    //event handler that 
     handleSubmit = event => {
         event.preventDefault();
         
